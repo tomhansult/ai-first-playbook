@@ -1322,6 +1322,155 @@
     section { padding: 40px 0; }
     .copy-btn { display: none !important; }
   }
+
+  /* ========== RAPID FIRE CARDS ========== */
+  .rapid-fire {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .rf-card {
+    background: var(--dark);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .rf-card:hover {
+    border-color: rgba(21, 106, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .rf-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.6;
+  }
+
+  .rf-card-full { grid-column: 1 / -1; }
+
+  .rf-card-number {
+    font-size: 3rem; font-weight: 900;
+    color: rgba(21, 106, 255, 0.1);
+    position: absolute; top: 12px; right: 20px;
+    line-height: 1; font-family: var(--mono);
+  }
+
+  .rf-tag {
+    display: inline-block;
+    background: var(--accent-glow); color: var(--accent);
+    font-size: 0.6rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 4px 10px; border-radius: 4px; margin-bottom: 12px;
+  }
+
+  .rf-card h4 {
+    font-size: 1.1rem; color: var(--white);
+    margin: 0 0 10px 0; font-weight: 800;
+  }
+
+  .rf-card p {
+    font-size: 0.88rem; color: var(--gray-light);
+    margin: 0; line-height: 1.65;
+  }
+
+  /* ========== DEEP DIVES ========== */
+  .deep-dive {
+    background: var(--dark);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 40px; margin: 30px 0;
+    position: relative; overflow: hidden;
+  }
+
+  .deep-dive::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(21, 106, 255, 0.2));
+  }
+
+  .deep-dive h3 { font-size: 1.25rem; color: var(--white); margin: 0 0 8px 0; }
+  .deep-dive .dd-subtitle { font-size: 0.85rem; color: var(--gray); margin-bottom: 24px; font-style: italic; }
+  .deep-dive h4 { font-size: 0.95rem; color: var(--accent); margin: 24px 0 12px 0; font-weight: 700; }
+  .deep-dive p { font-size: 0.9rem; color: var(--gray-light); line-height: 1.7; }
+
+  .dd-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin: 16px 0;
+  }
+
+  .dd-grid-item {
+    background: var(--dark-2); border: 1px solid var(--dark-3);
+    border-radius: 10px; padding: 18px;
+  }
+
+  .dd-grid-item strong { color: var(--white); font-size: 0.85rem; display: block; margin-bottom: 4px; }
+  .dd-grid-item span { color: var(--gray); font-size: 0.78rem; line-height: 1.5; }
+
+  /* Context Visual */
+  .context-visual { position: relative; margin: 30px auto; width: 100%; max-width: 500px; }
+  .context-visual svg { width: 100%; height: auto; }
+
+  /* Recipe Visual */
+  .recipe-visual {
+    background: var(--dark-2); border: 1px solid var(--dark-3);
+    border-radius: 14px; overflow: hidden; margin: 24px 0;
+  }
+
+  .recipe-header {
+    background: linear-gradient(135deg, rgba(21,106,255,0.15), rgba(21,106,255,0.05));
+    border-bottom: 1px solid var(--dark-3);
+    padding: 20px 24px; display: flex; align-items: center; gap: 14px;
+  }
+
+  .recipe-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--accent-glow); border: 1px solid rgba(21, 106, 255, 0.3);
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0;
+  }
+
+  .recipe-meta h5 { margin: 0; font-size: 0.95rem; color: var(--white); font-weight: 700; }
+  .recipe-meta span { font-size: 0.75rem; color: var(--gray); }
+
+  .recipe-step {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 24px; border-bottom: 1px solid var(--dark-3);
+  }
+  .recipe-step:last-child { border-bottom: none; }
+
+  .recipe-step-num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent-glow); border: 1px solid rgba(21, 106, 255, 0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 800; color: var(--accent); margin-top: 2px;
+  }
+
+  .recipe-step-content strong { color: var(--white); font-size: 0.82rem; display: block; margin-bottom: 2px; }
+  .recipe-step-content span { color: var(--gray); font-size: 0.75rem; line-height: 1.5; }
+
+  /* Connector Visual */
+  .connector-visual { position: relative; margin: 30px auto; width: 100%; max-width: 540px; }
+  .connector-visual svg { width: 100%; height: auto; }
+
+  /* Tech Stack Visual */
+  .tech-stack-visual { margin: 40px 0; position: relative; }
+  .tech-stack-visual svg { width: 100%; height: auto; }
+
+  @media (max-width: 600px) {
+    .dd-grid { grid-template-columns: 1fr; }
+    .rapid-fire { grid-template-columns: 1fr; }
+    .rf-card-full { grid-column: 1; }
+    .deep-dive { padding: 24px 20px; }
+    .recipe-step { padding: 12px 16px; }
+  }
+
 </style>
 </head>
 <body>
@@ -1550,23 +1699,85 @@
 
     <h2>Der Dream Tech Stack</h2>
 
-    <!-- TECH STACK DIAGRAM -->
-    <div class="stack-diagram">
-      <div class="stack-center">
-        <div>
-          <div class="stack-center-label">Claude<br>Desktop App</div>
-          <span class="stack-center-sub">AI-Zentrale</span>
-        </div>
-      </div>
-      <div class="stack-connector"></div>
-      <div class="stack-ring">
-        <div class="stack-node">Airtable<small>Zentrale Datenbank</small></div>
-        <div class="stack-node">GitHub<small>Text &amp; Code</small></div>
-        <div class="stack-node">Make<small>Automatisierung</small></div>
-        <div class="stack-node">Slack<small>Kommunikation</small></div>
-        <div class="stack-node">Google Workspace<small>Extern</small></div>
-        <div class="stack-node">Spezialisierte Tools<small>Rechnungen, Analytics...</small></div>
-      </div>
+    <!-- TECH STACK DIAGRAM (SVG Architecture) -->
+    <div class="tech-stack-visual">
+      <svg viewBox="0 0 700 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect width="700" height="520" rx="20" fill="#000a27" stroke="#1a2744" stroke-width="1"/>
+
+        <!-- ======= AI LAYER (Top) ======= -->
+        <text x="350" y="32" text-anchor="middle" fill="#156aff" font-size="10" font-weight="700" letter-spacing="2" font-family="Inter, sans-serif">AI LAYER</text>
+
+        <!-- Claude Desktop App -->
+        <rect x="60" y="46" width="270" height="72" rx="14" fill="rgba(21,106,255,0.08)" stroke="rgba(21,106,255,0.35)" stroke-width="1.5"/>
+        <text x="195" y="74" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800" font-family="Inter, sans-serif">Claude Desktop App</text>
+        <text x="195" y="96" text-anchor="middle" fill="#8899aa" font-size="10" font-family="Inter, sans-serif">Chat &middot; Cowork &middot; Skills &middot; Plugins</text>
+
+        <!-- Claude Code / Cursor -->
+        <rect x="370" y="46" width="270" height="72" rx="14" fill="rgba(21,106,255,0.08)" stroke="rgba(21,106,255,0.35)" stroke-width="1.5"/>
+        <text x="505" y="74" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800" font-family="Inter, sans-serif">Claude Code / Cursor</text>
+        <text x="505" y="96" text-anchor="middle" fill="#8899aa" font-size="10" font-family="Inter, sans-serif">Terminal &middot; Coding &middot; Agents</text>
+
+        <!-- MCP Connection lines from AI to tools -->
+        <text x="350" y="145" text-anchor="middle" fill="#156aff" font-size="9" font-weight="600" letter-spacing="1.5" font-family="Inter, sans-serif">MCP CONNECTORS</text>
+
+        <!-- Vertical lines from Claude Desktop to tools -->
+        <line x1="140" y1="118" x2="140" y2="168" stroke="rgba(21,106,255,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="250" y1="118" x2="250" y2="168" stroke="rgba(21,106,255,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="350" y1="135" x2="350" y2="168" stroke="rgba(21,106,255,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="450" y1="118" x2="450" y2="168" stroke="rgba(21,106,255,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="560" y1="118" x2="560" y2="168" stroke="rgba(21,106,255,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+
+        <!-- ======= DATA & CODE LAYER ======= -->
+        <text x="350" y="184" text-anchor="middle" fill="#6b7a8d" font-size="10" font-weight="700" letter-spacing="2" font-family="Inter, sans-serif">DATA &amp; CODE LAYER</text>
+
+        <!-- Airtable -->
+        <rect x="60" y="196" width="200" height="64" rx="12" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+        <text x="160" y="222" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700" font-family="Inter, sans-serif">Airtable</text>
+        <text x="160" y="242" text-anchor="middle" fill="#6b7a8d" font-size="9.5" font-family="Inter, sans-serif">Datenbank &middot; Pipelines &middot; Dashboards</text>
+
+        <!-- GitHub -->
+        <rect x="290" y="196" width="200" height="64" rx="12" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+        <text x="390" y="222" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700" font-family="Inter, sans-serif">GitHub</text>
+        <text x="390" y="242" text-anchor="middle" fill="#6b7a8d" font-size="9.5" font-family="Inter, sans-serif">Code &middot; SOPs &middot; Content &middot; Versioning</text>
+
+        <!-- ======= MAKE: AUTOMATION LAYER ======= -->
+        <!-- Make sits BETWEEN tools, connecting them horizontally -->
+        <rect x="440" y="280" width="200" height="50" rx="25" fill="rgba(21,106,255,0.12)" stroke="rgba(21,106,255,0.4)" stroke-width="1.5"/>
+        <text x="540" y="302" text-anchor="middle" fill="#156aff" font-size="11" font-weight="800" font-family="Inter, sans-serif">&#9889; Make</text>
+        <text x="540" y="318" text-anchor="middle" fill="#8899aa" font-size="8.5" font-family="Inter, sans-serif">Automation zwischen Tools</text>
+
+        <!-- Horizontal connector lines FROM Make TO other tools -->
+        <line x1="440" y1="305" x2="260" y2="240" stroke="rgba(21,106,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="470" y1="288" x2="420" y2="260" stroke="rgba(21,106,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="540" y1="330" x2="350" y2="396" stroke="rgba(21,106,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="540" y1="330" x2="540" y2="396" stroke="rgba(21,106,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <line x1="480" y1="330" x2="160" y2="396" stroke="rgba(21,106,255,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
+
+        <!-- ======= COMMUNICATION LAYER ======= -->
+        <text x="350" y="380" text-anchor="middle" fill="#6b7a8d" font-size="10" font-weight="700" letter-spacing="2" font-family="Inter, sans-serif">COMMUNICATION &amp; TOOLS</text>
+
+        <!-- Slack -->
+        <rect x="60" y="394" width="150" height="56" rx="12" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+        <text x="135" y="418" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" font-family="Inter, sans-serif">Slack</text>
+        <text x="135" y="436" text-anchor="middle" fill="#6b7a8d" font-size="9" font-family="Inter, sans-serif">Internes Team</text>
+
+        <!-- Google Workspace -->
+        <rect x="230" y="394" width="190" height="56" rx="12" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+        <text x="325" y="418" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" font-family="Inter, sans-serif">Google Workspace</text>
+        <text x="325" y="436" text-anchor="middle" fill="#6b7a8d" font-size="9" font-family="Inter, sans-serif">Externe Kommunikation</text>
+
+        <!-- Spezialisierte Tools -->
+        <rect x="440" y="394" width="200" height="56" rx="12" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+        <text x="540" y="418" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" font-family="Inter, sans-serif">Spezialisierte Tools</text>
+        <text x="540" y="436" text-anchor="middle" fill="#6b7a8d" font-size="9" font-family="Inter, sans-serif">Rechnungen &middot; Analytics &middot; CRM</text>
+
+        <!-- Legend -->
+        <line x1="80" y1="485" x2="110" y2="485" stroke="rgba(21,106,255,0.35)" stroke-width="1.5"/>
+        <text x="118" y="488" fill="#6b7a8d" font-size="8.5" font-family="Inter, sans-serif">MCP Connector (direkt)</text>
+        <line x1="300" y1="485" x2="330" y2="485" stroke="rgba(21,106,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="338" y="488" fill="#6b7a8d" font-size="8.5" font-family="Inter, sans-serif">Make Automation (trigger-basiert)</text>
+      </svg>
     </div>
 
     <h3>Zentrale Datenbank: Airtable</h3>
@@ -1978,6 +2189,256 @@ Brand: [Farben, Logo-Info, Font-Pr&auml;ferenzen]</pre>
   </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- RAPID FIRE LEARNINGS -->
+<!-- ============================================ -->
+<section>
+  <div class="content-wrapper">
+    <div class="section-label">Rapid Fire</div>
+    <div class="section-title">5 Learnings, die den <span class="highlight">Unterschied</span> machen</div>
+    <div class="divider-thick"></div>
+
+    <p>Diese f&uuml;nf Erkenntnisse kommen direkt aus der Praxis. Jede einzelne hat grundlegend ver&auml;ndert, wie wir arbeiten &mdash; und wie schnell wir Ergebnisse liefern.</p>
+
+    <div class="rapid-fire">
+      <div class="rf-card">
+        <div class="rf-card-number">01</div>
+        <div class="rf-tag">Mindset</div>
+        <h4>AI First denken</h4>
+        <p>Die meisten fragen: <em>&bdquo;Wo kann AI helfen?&ldquo;</em> &mdash; falsche Frage. Die richtige: <strong>&bdquo;Was muss noch Mensch sein?&ldquo;</strong> Dreh die Default-Logik um. AI als Basis &mdash; Mensch greift ein, wo es wirklich z&auml;hlt.</p>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card-number">02</div>
+        <div class="rf-tag">Prompting</div>
+        <h4>Context is the Prompt&rsquo;s Holy Grail</h4>
+        <p>Der Prompt ist nur so gut wie der Kontext. Nicht &bdquo;Schreib mir eine Email&ldquo; &mdash; sondern: Wer? Vorgeschichte? Ton? Ziel? Je mehr Context, desto besser das Ergebnis.</p>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card-number">03</div>
+        <div class="rf-tag">Strategie</div>
+        <h4>Es gibt keine Silver Bullet</h4>
+        <p>Die Magie liegt in vielen kleinen Dingen mit <strong>Compound-Effekt</strong>. 20 Verbesserungen &agrave; 5% &gt; eine gro&szlig;e &agrave; 50%. Bau Systeme, keine Abk&uuml;rzungen.</p>
+      </div>
+
+      <div class="rf-card">
+        <div class="rf-card-number">04</div>
+        <div class="rf-tag">Execution</div>
+        <h4>Iteration Speed &gt; Perfektion</h4>
+        <p>Ultra schnell shippen. Super schnell lernen. Mit AI iterierst du an einem Tag mehr als fr&uuml;her in einer Woche. Geschwindigkeit ist der unfaire Vorteil.</p>
+      </div>
+
+      <div class="rf-card rf-card-full">
+        <div class="rf-card-number">05</div>
+        <div class="rf-tag">Productivity</div>
+        <h4>Voice Input als Geheimwaffe</h4>
+        <p>Tools wie <strong>MacWhisper</strong> oder <strong>WhisperFlow</strong>: 30 Sekunden reinreden statt 5 Minuten tippen. Transkribieren lassen, Claude den Rest machen lassen. Meetings, Notizen, Briefings &mdash; alles per Voice rein.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- DEEP DIVES: CONTEXT, SKILLS, TOOLS -->
+<!-- ============================================ -->
+<section>
+  <div class="content-wrapper">
+    <div class="section-label">Deep Dive</div>
+    <div class="section-title">Context, Skills &amp; Tools &mdash;<br><span class="highlight">Die drei Hebel</span> im Detail</div>
+    <div class="divider-thick"></div>
+
+    <p>Drei Konzepte, die du wirklich verstehen musst, um das Maximum aus Claude rauszuholen. Kein Oberfl&auml;chen-Wissen &mdash; sondern das, was in der Praxis den Unterschied macht.</p>
+
+    <!-- DEEP DIVE 1: CONTEXT -->
+    <div class="deep-dive">
+      <h3>&#127919; Deep Dive: Context</h3>
+      <p class="dd-subtitle">Warum Context wichtiger ist als jeder Prompt-Trick</p>
+
+      <p>Claude ist extrem intelligent &mdash; aber kein Hellseher. Ohne Kontext liefert Claude generische Antworten. Mit dem richtigen Kontext liefert Claude Ergebnisse, die sich anf&uuml;hlen, als k&auml;men sie von jemandem, der dein Business seit Jahren kennt.</p>
+
+      <h4>Die 4 Context-Ebenen</h4>
+
+      <!-- Context Layers Visual -->
+      <div class="context-visual">
+        <svg viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring: Regeln -->
+          <rect x="10" y="10" width="480" height="300" rx="20" fill="none" stroke="#1a2744" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <text x="250" y="34" text-anchor="middle" fill="#6b7a8d" font-size="10" font-weight="600" font-family="Inter, sans-serif" letter-spacing="1">WELCHE REGELN GELTEN?</text>
+          <text x="250" y="50" text-anchor="middle" fill="#4a5568" font-size="8.5" font-family="Inter, sans-serif">Was vermeiden &middot; Was betonen &middot; Welcher Stil &middot; Constraints</text>
+
+          <!-- Second ring: Wissen -->
+          <rect x="50" y="62" width="400" height="228" rx="16" fill="none" stroke="#1a2744" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <text x="250" y="82" text-anchor="middle" fill="#6b7a8d" font-size="10" font-weight="600" font-family="Inter, sans-serif" letter-spacing="1">WAS WEISST DU SCHON?</text>
+          <text x="250" y="97" text-anchor="middle" fill="#4a5568" font-size="8.5" font-family="Inter, sans-serif">Referenzen &middot; Fr&uuml;here Arbeiten &middot; Beispiele &middot; Daten</text>
+
+          <!-- Third ring: Ziel -->
+          <rect x="90" y="110" width="320" height="160" rx="14" fill="none" stroke="rgba(21,106,255,0.25)" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <text x="250" y="130" text-anchor="middle" fill="#8899aa" font-size="10" font-weight="600" font-family="Inter, sans-serif" letter-spacing="1">WAS IST DAS ZIEL?</text>
+          <text x="250" y="145" text-anchor="middle" fill="#4a5568" font-size="8.5" font-family="Inter, sans-serif">Ergebnis &middot; Format &middot; Zielgruppe &middot; CTA</text>
+
+          <!-- Core: Identit&auml;t -->
+          <rect x="140" y="158" width="220" height="90" rx="12" fill="rgba(21,106,255,0.1)" stroke="rgba(21,106,255,0.4)" stroke-width="2"/>
+          <text x="250" y="188" text-anchor="middle" fill="#156aff" font-size="13" font-weight="800" font-family="Inter, sans-serif">WER BIST DU?</text>
+          <text x="250" y="210" text-anchor="middle" fill="#8899aa" font-size="9" font-family="Inter, sans-serif">System Prompt &middot; Brand Voice</text>
+          <text x="250" y="226" text-anchor="middle" fill="#8899aa" font-size="9" font-family="Inter, sans-serif">Positionierung &middot; Werte</text>
+
+          <!-- Label -->
+          <text x="250" y="304" text-anchor="middle" fill="#4a5568" font-size="9" font-family="Inter, sans-serif" font-style="italic">Je mehr Schichten &rarr; desto pr&auml;ziser das Ergebnis</text>
+        </svg>
+      </div>
+
+      <p>Daf&uuml;r gibt es System Prompts, Skills und Referenzen &mdash; damit du diesen Context nicht jedes Mal neu tippen musst. <strong>Einmal aufsetzen, immer profitieren.</strong></p>
+    </div>
+
+    <!-- DEEP DIVE 2: SKILLS -->
+    <div class="deep-dive">
+      <h3>&#9889; Deep Dive: Skills</h3>
+      <p class="dd-subtitle">Wiederverwendbare Anweisungen &mdash; dein gr&ouml;&szlig;ter Hebel</p>
+
+      <p>Ein Skill ist wie ein Rezept, das Claude befolgt. Einmal gebaut, unendlich oft nutzbar. Von simpel (&bdquo;Schreib Emails in diesem Stil&ldquo;) bis extrem komplex (&bdquo;Analysiere Transkripte, extrahiere Insights, erstelle einen Report&ldquo;).</p>
+
+      <h4>Anatomie eines Skills</h4>
+
+      <!-- Recipe Visual -->
+      <div class="recipe-visual">
+        <div class="recipe-header">
+          <div class="recipe-icon">&#9889;</div>
+          <div class="recipe-meta">
+            <h5>Skill Blueprint</h5>
+            <span>So ist jeder Skill aufgebaut</span>
+          </div>
+        </div>
+        <div class="recipe-body">
+          <div class="recipe-step">
+            <div class="recipe-step-num">1</div>
+            <div class="recipe-step-content">
+              <strong>Trigger</strong>
+              <span>Wann aktiviert sich der Skill? Keywords, Situationen, Dateitypen</span>
+            </div>
+          </div>
+          <div class="recipe-step">
+            <div class="recipe-step-num">2</div>
+            <div class="recipe-step-content">
+              <strong>Kontext laden</strong>
+              <span>Brand Voice, Beispiele, Regeln, Referenzen &mdash; alles was Claude wissen muss</span>
+            </div>
+          </div>
+          <div class="recipe-step">
+            <div class="recipe-step-num">3</div>
+            <div class="recipe-step-content">
+              <strong>Schritte ausf&uuml;hren</strong>
+              <span>Was genau soll Claude tun? In welcher Reihenfolge? Mit welchen Tools?</span>
+            </div>
+          </div>
+          <div class="recipe-step">
+            <div class="recipe-step-num">4</div>
+            <div class="recipe-step-content">
+              <strong>Output liefern</strong>
+              <span>Datei, Text, Tabelle, Pr&auml;sentation &mdash; im exakten Format, das du brauchst</span>
+            </div>
+          </div>
+          <div class="recipe-step">
+            <div class="recipe-step-num">&#10003;</div>
+            <div class="recipe-step-content">
+              <strong>Qualit&auml;t checken</strong>
+              <span>Verifizierung, Fact-Check, Format-Check &mdash; automatisch vor Auslieferung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>Skills sind <strong>der Compound-Effekt in Action</strong>. Jeder Skill, den du baust, spart ab Tag 1 Zeit &mdash; und wird mit jedem Update besser.</p>
+    </div>
+
+    <!-- DEEP DIVE 3: TOOLS / CONNECTORS -->
+    <div class="deep-dive">
+      <h3>&#128268; Deep Dive: Tools (Connectors)</h3>
+      <p class="dd-subtitle">Wie Claude mit deinen Tools spricht</p>
+
+      <p>Connectors (MCP &mdash; Model Context Protocol) sind die Br&uuml;cken zwischen Claude und deiner Tool-Landschaft. Ohne Connectors ist Claude schlau, aber blind. Mit Connectors greift Claude direkt auf deine Daten zu und f&uuml;hrt Aktionen aus.</p>
+
+      <h4>Was Connectors k&ouml;nnen</h4>
+      <div class="dd-grid">
+        <div class="dd-grid-item">
+          <strong>&#128214; Lesen</strong>
+          <span>Daten abfragen, Messages lesen, Calendar checken</span>
+        </div>
+        <div class="dd-grid-item">
+          <strong>&#9999;&#65039; Schreiben</strong>
+          <span>Eintr&auml;ge erstellen, Messages senden, Events anlegen</span>
+        </div>
+        <div class="dd-grid-item">
+          <strong>&#128269; Suchen</strong>
+          <span>&Uuml;ber alle Plattformen hinweg &mdash; Drive, Notion, GitHub</span>
+        </div>
+        <div class="dd-grid-item">
+          <strong>&#9889; Automatisieren</strong>
+          <span>Workflows triggern, Daten syncen, Reports generieren</span>
+        </div>
+      </div>
+
+      <!-- Connector Hub Visual -->
+      <div class="connector-visual">
+        <svg viewBox="0 0 540 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Claude Center -->
+          <rect x="190" y="110" width="160" height="80" rx="16" fill="rgba(21,106,255,0.12)" stroke="rgba(21,106,255,0.5)" stroke-width="2"/>
+          <text x="270" y="146" text-anchor="middle" fill="#156aff" font-size="14" font-weight="800" font-family="Inter, sans-serif">Claude</text>
+          <text x="270" y="166" text-anchor="middle" fill="#8899aa" font-size="9" font-family="Inter, sans-serif">MCP Gateway</text>
+
+          <!-- Tool nodes in a ring -->
+          <!-- Airtable (top-left) -->
+          <rect x="20" y="20" width="120" height="50" rx="10" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+          <text x="80" y="42" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter, sans-serif">Airtable</text>
+          <text x="80" y="58" text-anchor="middle" fill="#6b7a8d" font-size="8" font-family="Inter, sans-serif">Datenbank</text>
+          <line x1="140" y1="45" x2="190" y2="130" stroke="rgba(21,106,255,0.3)" stroke-width="1.5"/>
+
+          <!-- Slack (top-right) -->
+          <rect x="400" y="20" width="120" height="50" rx="10" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+          <text x="460" y="42" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter, sans-serif">Slack</text>
+          <text x="460" y="58" text-anchor="middle" fill="#6b7a8d" font-size="8" font-family="Inter, sans-serif">Team-Komm</text>
+          <line x1="400" y1="45" x2="350" y2="130" stroke="rgba(21,106,255,0.3)" stroke-width="1.5"/>
+
+          <!-- Google Calendar (left) -->
+          <rect x="0" y="125" width="130" height="50" rx="10" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+          <text x="65" y="147" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter, sans-serif">Calendar</text>
+          <text x="65" y="163" text-anchor="middle" fill="#6b7a8d" font-size="8" font-family="Inter, sans-serif">Termine</text>
+          <line x1="130" y1="150" x2="190" y2="150" stroke="rgba(21,106,255,0.3)" stroke-width="1.5"/>
+
+          <!-- GitHub (right) -->
+          <rect x="410" y="125" width="120" height="50" rx="10" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+          <text x="470" y="147" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter, sans-serif">GitHub</text>
+          <text x="470" y="163" text-anchor="middle" fill="#6b7a8d" font-size="8" font-family="Inter, sans-serif">Code &amp; SOPs</text>
+          <line x1="410" y1="150" x2="350" y2="150" stroke="rgba(21,106,255,0.3)" stroke-width="1.5"/>
+
+          <!-- Google Drive (bottom-left) -->
+          <rect x="20" y="230" width="120" height="50" rx="10" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+          <text x="80" y="252" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter, sans-serif">Google Drive</text>
+          <text x="80" y="268" text-anchor="middle" fill="#6b7a8d" font-size="8" font-family="Inter, sans-serif">Dokumente</text>
+          <line x1="140" y1="255" x2="190" y2="190" stroke="rgba(21,106,255,0.3)" stroke-width="1.5"/>
+
+          <!-- Notion (bottom-center) -->
+          <rect x="210" y="240" width="120" height="50" rx="10" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+          <text x="270" y="262" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter, sans-serif">Notion</text>
+          <text x="270" y="278" text-anchor="middle" fill="#6b7a8d" font-size="8" font-family="Inter, sans-serif">Wiki &amp; Docs</text>
+          <line x1="270" y1="240" x2="270" y2="190" stroke="rgba(21,106,255,0.3)" stroke-width="1.5"/>
+
+          <!-- Make (bottom-right) -->
+          <rect x="400" y="230" width="120" height="50" rx="10" fill="#0c1a35" stroke="#1a2744" stroke-width="1"/>
+          <text x="460" y="252" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Inter, sans-serif">Make</text>
+          <text x="460" y="268" text-anchor="middle" fill="#6b7a8d" font-size="8" font-family="Inter, sans-serif">Automations</text>
+          <line x1="400" y1="255" x2="350" y2="190" stroke="rgba(21,106,255,0.3)" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <p>Das Ziel: Claude soll <strong>alles k&ouml;nnen, was du auch kannst</strong> &mdash; nur schneller. Jeder Connector macht Claude m&auml;chtiger.</p>
+    </div>
+
+  </div>
+</section>
 <div class="divider"></div>
 
 <!-- ============================================ -->
