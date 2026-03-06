@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DXR VSL Page – Split Test Varianten</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #2563EB;
+    --blue-light: #3B82F6;
+    --blue-dark: #1D4ED8;
+    --bg: #0F1117;
+    --bg-card: #1A1D27;
+    --bg-tab: #161822;
+    --text: #FFFFFF;
+    --text-muted: #9CA3AF;
+    --text-dim: #6B7280;
+    --border: #2A2D3A;
+    --green: #22C55E;
+    --phone-width: 375px;
+    --phone-height: 812px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+    max-width: 700px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--blue-light), #818CF8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-tab);
+    border-radius: 16px;
+    padding: 6px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab {
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .tab.active {
+    background: var(--blue);
+    color: white;
+  }
+
+  /* Main Layout */
+  .main {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Phone Mockup */
+  .phone-container {
+    flex-shrink: 0;
+  }
+
+  .phone {
+    width: var(--phone-width);
+    height: var(--phone-height);
+    background: #000;
+    border-radius: 48px;
+    border: 4px solid #2A2D3A;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 34px;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+    z-index: 10;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #0A0C14;
+    scrollbar-width: none;
+  }
+
+  .phone-screen::-webkit-scrollbar { display: none; }
+
+  /* Landing Page Styles inside Phone */
+  .lp {
+    padding: 0;
+    display: none;
+  }
+
+  .lp.active { display: block; }
+
+  .lp-header {
+    text-align: center;
+    padding: 52px 24px 8px;
+  }
+
+  .lp-logo {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 20px;
+  }
+
+  .lp-logo svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .lp-headline {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    padding: 0 8px;
+    color: #fff;
+  }
+
+  .lp-headline .hl {
+    background: var(--blue);
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline;
+  }
+
+  .lp-subheadline {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    padding: 0 12px;
+    margin-bottom: 24px;
+  }
+
+  /* Step Badge */
+  .step-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .step-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 16px;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  /* Video Placeholder */
+  .video-placeholder {
+    margin: 0 20px 24px;
+    background: #161822;
+    border-radius: 12px;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(0,0,0,0.3));
+  }
+
+  .play-btn {
+    width: 56px;
+    height: 56px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 4px 24px rgba(37, 99, 235, 0.4);
+  }
+
+  .play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    margin-left: 3px;
+  }
+
+  /* Step 2 Section */
+  .step2-section {
+    text-align: center;
+    padding: 8px 24px 8px;
+  }
+
+  .step2-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  /* CTA Button */
+  .cta-btn {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 0 auto 12px;
+    padding: 16px 24px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .cta-btn:hover {
+    background: var(--blue-light);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+  }
+
+  /* Playbook Note */
+  .playbook-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    padding: 8px 24px 24px;
+    line-height: 1.5;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    padding: 16px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .testimonial {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), #818CF8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--blue-light);
+  }
+
+  .testimonial-company {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  .testimonial-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  /* Sidebar Info */
+  .sidebar {
+    max-width: 380px;
+    flex-shrink: 0;
+  }
+
+  .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .info-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--blue-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .info-card .variant-name {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .info-item {
+    margin-bottom: 16px;
+  }
+
+  .info-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .info-value {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .hypothesis-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(37, 99, 235, 0.15);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-light);
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 16px 0;
+  }
+
+  /* Trust bar */
+  .trust-bar {
+    text-align: center;
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .trust-bar p {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .trust-logos {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0.4;
+  }
+
+  .trust-logo {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .main {
+      flex-direction: column;
+      align-items: center;
+    }
+    .sidebar {
+      max-width: 100%;
+      width: 100%;
+      max-width: var(--phone-width);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>DXR VSL Page – Split Test</h1>
+  <p>5 Varianten zum Vergleichen. Jede mit eigenem Angle, Headline, Sub-Headline, Step-2-Framing und CTA. Klick durch die Tabs und scroll durch die Phone-Mockups.</p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showVariant(0)">V1: Speed-Claim</button>
+  <button class="tab" onclick="showVariant(1)">V2: Voice-Note</button>
+  <button class="tab" onclick="showVariant(2)">V3: System vs. Tool</button>
+  <button class="tab" onclick="showVariant(3)">V4: Condition</button>
+  <button class="tab" onclick="showVariant(4)">V5: Profit-Hebel</button>
+</div>
+
+<div class="main">
+  <div class="phone-container">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+
+        <!-- ========== VARIANTE 1: Speed-Claim ========== -->
+        <div class="lp active" id="variant-0">
+          <div class="lp-header">
+            <div class="lp-logo">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 8L18 4L28 8L18 28L8 8Z" fill="#2563EB"/>
+                <path d="M18 4L28 8L18 28L18 4Z" fill="#1D4ED8"/>
+              </svg>
+            </div>
+            <h1 class="lp-headline">Halbe Zeit. Doppelter Output. <span class="hl">So läuft eine AI-Agentur 2026.</span></h1>
+            <p class="lp-subheadline">In diesem Video siehst du den exakten Aufbau, mit dem Agenturen ihren gesamten Workflow auf AI umstellen – und wie du ihn in deiner Agentur umsetzt.</p>
+          </div>
+
+          <div style="text-align:center; margin-bottom: 4px;">
+            <span class="step-badge">SCHRITT 1/2</span>
+          </div>
+          <div class="step-label">Video anschauen</div>
+
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+
+          <div class="step2-section">
+            <span class="step-badge">SCHRITT 2/2</span>
+            <p class="step2-text">Dein AI-Fasttrack: In 14 Tagen stellt dein Team auf AI um – mit Fahrplan, Support und Accountability.</p>
+          </div>
+
+          <button class="cta-btn">Jetzt Platz im AI-Fasttrack sichern</button>
+          <p class="playbook-note">📘 Dein AI First Playbook erhältst du in Kürze per E-Mail</p>
+
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">SS</div>
+                <div>
+                  <div class="testimonial-name">Sebastian Szalinski</div>
+                  <div class="testimonial-company">Iron Media GmbH</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"Jede krasse Agentur hat irgendwie schon mit DXR gearbeitet."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">BM</div>
+                <div>
+                  <div class="testimonial-name">Brian Moncada</div>
+                  <div class="testimonial-company">Adspent.com</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"I listen to DXR when it comes to building scalable agency growth systems."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">MB</div>
+                <div>
+                  <div class="testimonial-name">Michael Bogner</div>
+                  <div class="testimonial-company">perspective.co</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"DXR ist für mich die einzig ernsthafte Anlaufstelle, wenn du eine Agentur skalieren willst."</div>
+            </div>
+          </div>
+
+          <div class="trust-bar">
+            <p>Bereits über 600 Agenturen betreut</p>
+            <div class="trust-logos">
+              <span class="trust-logo">DIFORT</span>
+              <span class="trust-logo">SSCALE</span>
+              <span class="trust-logo">NA GROUP</span>
+              <span class="trust-logo">APIRON</span>
+              <span class="trust-logo">LYCANE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== VARIANTE 2: Voice-Note ========== -->
+        <div class="lp" id="variant-1">
+          <div class="lp-header">
+            <div class="lp-logo">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 8L18 4L28 8L18 28L8 8Z" fill="#2563EB"/>
+                <path d="M18 4L28 8L18 28L18 4Z" fill="#1D4ED8"/>
+              </svg>
+            </div>
+            <h1 class="lp-headline">Eine ganze Agentur gesteuert per Sprachnachricht. <span class="hl">So funktioniert eine AI-Agentur.</span></h1>
+            <p class="lp-subheadline">Kein Tool-Chaos, kein Micromanagement. Ein AI-System, das liefert, während du steuerst. Schau dir an, wie Agenturen das gerade aufbauen.</p>
+          </div>
+
+          <div style="text-align:center; margin-bottom: 4px;">
+            <span class="step-badge">SCHRITT 1/2</span>
+          </div>
+          <div class="step-label">Video anschauen</div>
+
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+
+          <div class="step2-section">
+            <span class="step-badge">SCHRITT 2/2</span>
+            <p class="step2-text">Der DXR AI-Fasttrack: In 14 Tagen baust du dein AI-System auf – mit klarem Plan, Live-Support und persönlichem Accountability-Partner.</p>
+          </div>
+
+          <button class="cta-btn">Jetzt Erstgespräch für den AI-Fasttrack buchen</button>
+          <p class="playbook-note">📘 Dein AI First Playbook erhältst du in Kürze per E-Mail</p>
+
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">SS</div>
+                <div>
+                  <div class="testimonial-name">Sebastian Szalinski</div>
+                  <div class="testimonial-company">Iron Media GmbH</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"Jede krasse Agentur hat irgendwie schon mit DXR gearbeitet."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">BM</div>
+                <div>
+                  <div class="testimonial-name">Brian Moncada</div>
+                  <div class="testimonial-company">Adspent.com</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"I listen to DXR when it comes to building scalable agency growth systems."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">MB</div>
+                <div>
+                  <div class="testimonial-name">Michael Bogner</div>
+                  <div class="testimonial-company">perspective.co</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"DXR ist für mich die einzig ernsthafte Anlaufstelle, wenn du eine Agentur skalieren willst."</div>
+            </div>
+          </div>
+
+          <div class="trust-bar">
+            <p>Bereits über 600 Agenturen betreut</p>
+            <div class="trust-logos">
+              <span class="trust-logo">DIFORT</span>
+              <span class="trust-logo">SSCALE</span>
+              <span class="trust-logo">NA GROUP</span>
+              <span class="trust-logo">APIRON</span>
+              <span class="trust-logo">LYCANE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== VARIANTE 3: System vs. Tool ========== -->
+        <div class="lp" id="variant-2">
+          <div class="lp-header">
+            <div class="lp-logo">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 8L18 4L28 8L18 28L8 8Z" fill="#2563EB"/>
+                <path d="M18 4L28 8L18 28L18 4Z" fill="#1D4ED8"/>
+              </svg>
+            </div>
+            <h1 class="lp-headline">Dein Team kann 2x so schnell liefern. <span class="hl">Es fehlt nicht das Tool – es fehlt das System.</span></h1>
+            <p class="lp-subheadline">Schau dir an, was sich ändert, wenn du aufhörst AI draufzukleben und anfängst dein Business darauf aufzubauen. 600+ Agenturen machen es schon.</p>
+          </div>
+
+          <div style="text-align:center; margin-bottom: 4px;">
+            <span class="step-badge">SCHRITT 1/2</span>
+          </div>
+          <div class="step-label">Video anschauen</div>
+
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+
+          <div class="step2-section">
+            <span class="step-badge">SCHRITT 2/2</span>
+            <p class="step2-text">Der DXR AI-Fasttrack: In 14 Tagen baust du das AI-System für deine Agentur – Schritt für Schritt, mit Support an deiner Seite.</p>
+          </div>
+
+          <button class="cta-btn">Jetzt Platz im AI-Fasttrack sichern</button>
+          <p class="playbook-note">📘 Dein AI First Playbook erhältst du in Kürze per E-Mail</p>
+
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">SS</div>
+                <div>
+                  <div class="testimonial-name">Sebastian Szalinski</div>
+                  <div class="testimonial-company">Iron Media GmbH</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"Jede krasse Agentur hat irgendwie schon mit DXR gearbeitet."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">BM</div>
+                <div>
+                  <div class="testimonial-name">Brian Moncada</div>
+                  <div class="testimonial-company">Adspent.com</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"I listen to DXR when it comes to building scalable agency growth systems."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">MB</div>
+                <div>
+                  <div class="testimonial-name">Michael Bogner</div>
+                  <div class="testimonial-company">perspective.co</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"DXR ist für mich die einzig ernsthafte Anlaufstelle, wenn du eine Agentur skalieren willst."</div>
+            </div>
+          </div>
+
+          <div class="trust-bar">
+            <p>Bereits über 600 Agenturen betreut</p>
+            <div class="trust-logos">
+              <span class="trust-logo">DIFORT</span>
+              <span class="trust-logo">SSCALE</span>
+              <span class="trust-logo">NA GROUP</span>
+              <span class="trust-logo">APIRON</span>
+              <span class="trust-logo">LYCANE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== VARIANTE 4: Condition (Jeremy-Style) ========== -->
+        <div class="lp" id="variant-3">
+          <div class="lp-header">
+            <div class="lp-logo">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 8L18 4L28 8L18 28L8 8Z" fill="#2563EB"/>
+                <path d="M18 4L28 8L18 28L18 4Z" fill="#1D4ED8"/>
+              </svg>
+            </div>
+            <h1 class="lp-headline">Wenn dein Team trotz AI immer noch genauso lange braucht – <span class="hl">fehlt nicht das Tool, sondern der Aufbau.</span></h1>
+            <p class="lp-subheadline">In diesem Video siehst du, wie Agenturen das lösen: Weniger Overhead, schnellerer Output, mehr Marge – und warum die ersten Wochen schon den Unterschied machen.</p>
+          </div>
+
+          <div style="text-align:center; margin-bottom: 4px;">
+            <span class="step-badge">SCHRITT 1/2</span>
+          </div>
+          <div class="step-label">Video anschauen</div>
+
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+
+          <div class="step2-section">
+            <span class="step-badge">SCHRITT 2/2</span>
+            <p class="step2-text">Im DXR AI-Fasttrack baust du in 14 Tagen dein AI-System auf – mit Live-Support, klarem Fahrplan und echten Ergebnissen ab Woche 1.</p>
+          </div>
+
+          <button class="cta-btn">Erstgespräch für den AI-Fasttrack buchen</button>
+          <p class="playbook-note">📘 Dein AI First Playbook erhältst du in Kürze per E-Mail</p>
+
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">SS</div>
+                <div>
+                  <div class="testimonial-name">Sebastian Szalinski</div>
+                  <div class="testimonial-company">Iron Media GmbH</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"Jede krasse Agentur hat irgendwie schon mit DXR gearbeitet."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">BM</div>
+                <div>
+                  <div class="testimonial-name">Brian Moncada</div>
+                  <div class="testimonial-company">Adspent.com</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"I listen to DXR when it comes to building scalable agency growth systems."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">MB</div>
+                <div>
+                  <div class="testimonial-name">Michael Bogner</div>
+                  <div class="testimonial-company">perspective.co</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"DXR ist für mich die einzig ernsthafte Anlaufstelle, wenn du eine Agentur skalieren willst."</div>
+            </div>
+          </div>
+
+          <div class="trust-bar">
+            <p>Bereits über 600 Agenturen betreut</p>
+            <div class="trust-logos">
+              <span class="trust-logo">DIFORT</span>
+              <span class="trust-logo">SSCALE</span>
+              <span class="trust-logo">NA GROUP</span>
+              <span class="trust-logo">APIRON</span>
+              <span class="trust-logo">LYCANE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== VARIANTE 5: Profit-Hebel ========== -->
+        <div class="lp" id="variant-4">
+          <div class="lp-header">
+            <div class="lp-logo">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 8L18 4L28 8L18 28L8 8Z" fill="#2563EB"/>
+                <path d="M18 4L28 8L18 28L18 4Z" fill="#1D4ED8"/>
+              </svg>
+            </div>
+            <h1 class="lp-headline">Schneller liefern, weniger Overhead, mehr Marge – <span class="hl">ohne einen einzigen neuen Hire.</span></h1>
+            <p class="lp-subheadline">Das passiert, wenn du aufhörst AI als Tool zu nutzen und anfängst dein Business darauf aufzubauen. Dieses Video zeigt dir den exakten Aufbau.</p>
+          </div>
+
+          <div style="text-align:center; margin-bottom: 4px;">
+            <span class="step-badge">SCHRITT 1/2</span>
+          </div>
+          <div class="step-label">Video anschauen</div>
+
+          <div class="video-placeholder">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+
+          <div class="step2-section">
+            <span class="step-badge">SCHRITT 2/2</span>
+            <p class="step2-text">Der DXR AI-Fasttrack: 14 Tage, ein klarer Fahrplan, dein AI-System steht. Mehr Output, mehr Marge, weniger Stress.</p>
+          </div>
+
+          <button class="cta-btn">Jetzt Platz im AI-Fasttrack sichern</button>
+          <p class="playbook-note">📘 Dein AI First Playbook erhältst du in Kürze per E-Mail</p>
+
+          <div class="testimonials">
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">SS</div>
+                <div>
+                  <div class="testimonial-name">Sebastian Szalinski</div>
+                  <div class="testimonial-company">Iron Media GmbH</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"Jede krasse Agentur hat irgendwie schon mit DXR gearbeitet."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">BM</div>
+                <div>
+                  <div class="testimonial-name">Brian Moncada</div>
+                  <div class="testimonial-company">Adspent.com</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"I listen to DXR when it comes to building scalable agency growth systems."</div>
+            </div>
+            <div class="testimonial">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">MB</div>
+                <div>
+                  <div class="testimonial-name">Michael Bogner</div>
+                  <div class="testimonial-company">perspective.co</div>
+                </div>
+              </div>
+              <div class="testimonial-text">"DXR ist für mich die einzig ernsthafte Anlaufstelle, wenn du eine Agentur skalieren willst."</div>
+            </div>
+          </div>
+
+          <div class="trust-bar">
+            <p>Bereits über 600 Agenturen betreut</p>
+            <div class="trust-logos">
+              <span class="trust-logo">DIFORT</span>
+              <span class="trust-logo">SSCALE</span>
+              <span class="trust-logo">NA GROUP</span>
+              <span class="trust-logo">APIRON</span>
+              <span class="trust-logo">LYCANE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Variant Info Cards -->
+    <div class="info-card" id="sidebar-0">
+      <h3>Variante 1</h3>
+      <div class="variant-name">Speed-Claim</div>
+      <div style="margin-bottom: 16px;">
+        <span class="hypothesis-tag">Hypothese D</span>
+        <span class="hypothesis-tag">Speed/Output</span>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Headline</div>
+        <div class="info-value">Halbe Zeit. Doppelter Output. So läuft eine AI-Agentur 2026.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Sub-Headline</div>
+        <div class="info-value">In diesem Video siehst du den exakten Aufbau, mit dem Agenturen ihren gesamten Workflow auf AI umstellen – und wie du ihn in deiner Agentur umsetzt.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Step 2/2 Framing</div>
+        <div class="info-value">Dein AI-Fasttrack: In 14 Tagen stellt dein Team auf AI um – mit Fahrplan, Support und Accountability.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">CTA</div>
+        <div class="info-value">Jetzt Platz im AI-Fasttrack sichern</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Warum dieser Angle?</div>
+        <div class="info-value">Direkt, konkret, messbar. "Halbe Zeit, doppelter Output" ist der Claim, den ihr schon nutzt – hier wird er zum Anchor der ganzen Page. Der Prospect denkt sofort in Ergebnissen.</div>
+      </div>
+    </div>
+
+    <div class="info-card" id="sidebar-1" style="display:none;">
+      <h3>Variante 2</h3>
+      <div class="variant-name">Voice-Note Reality</div>
+      <div style="margin-bottom: 16px;">
+        <span class="hypothesis-tag">Hypothese D</span>
+        <span class="hypothesis-tag">Konkretes Bild</span>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Headline</div>
+        <div class="info-value">Eine ganze Agentur gesteuert per Sprachnachricht. So funktioniert eine AI-Agentur.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Sub-Headline</div>
+        <div class="info-value">Kein Tool-Chaos, kein Micromanagement. Ein AI-System, das liefert, während du steuerst. Schau dir an, wie Agenturen das gerade aufbauen.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Step 2/2 Framing</div>
+        <div class="info-value">Der DXR AI-Fasttrack: In 14 Tagen baust du dein AI-System auf – mit klarem Plan, Live-Support und persönlichem Accountability-Partner.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">CTA</div>
+        <div class="info-value">Jetzt Erstgespräch für den AI-Fasttrack buchen</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Warum dieser Angle?</div>
+        <div class="info-value">Ultra-konkretes Bild. Jeder Agenturinhaber kann sich "Sprachnachricht morgens, Output abends" sofort vorstellen. Das ist kein Versprechen – das ist eine beschriebene Realität. Pattern-Interrupt durch Spezifität.</div>
+      </div>
+    </div>
+
+    <div class="info-card" id="sidebar-2" style="display:none;">
+      <h3>Variante 3</h3>
+      <div class="variant-name">System vs. Tool</div>
+      <div style="margin-bottom: 16px;">
+        <span class="hypothesis-tag">Hypothese B</span>
+        <span class="hypothesis-tag">Hypothese D</span>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Headline</div>
+        <div class="info-value">Dein Team kann 2x so schnell liefern. Es fehlt nicht das Tool – es fehlt das System.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Sub-Headline</div>
+        <div class="info-value">Schau dir an, was sich ändert, wenn du aufhörst AI draufzukleben und anfängst dein Business darauf aufzubauen. 600+ Agenturen machen es schon.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Step 2/2 Framing</div>
+        <div class="info-value">Der DXR AI-Fasttrack: In 14 Tagen baust du das AI-System für deine Agentur – Schritt für Schritt, mit Support an deiner Seite.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">CTA</div>
+        <div class="info-value">Jetzt Platz im AI-Fasttrack sichern</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Warum dieser Angle?</div>
+        <div class="info-value">Disqualifiziert, was der Prospect bisher macht (B), und liefert sofort die Lösung (D). "Draufkleben vs. darauf aufbauen" ist ein starkes mentales Modell, das hängen bleibt.</div>
+      </div>
+    </div>
+
+    <div class="info-card" id="sidebar-3" style="display:none;">
+      <h3>Variante 4</h3>
+      <div class="variant-name">Condition-Call-Out</div>
+      <div style="margin-bottom: 16px;">
+        <span class="hypothesis-tag">Jeremy-Style</span>
+        <span class="hypothesis-tag">Hypothese B</span>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Headline</div>
+        <div class="info-value">Wenn dein Team trotz AI immer noch genauso lange braucht – fehlt nicht das Tool, sondern der Aufbau.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Sub-Headline</div>
+        <div class="info-value">In diesem Video siehst du, wie Agenturen das lösen: Weniger Overhead, schnellerer Output, mehr Marge – und warum die ersten Wochen schon den Unterschied machen.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Step 2/2 Framing</div>
+        <div class="info-value">Im DXR AI-Fasttrack baust du in 14 Tagen dein AI-System auf – mit Live-Support, klarem Fahrplan und echten Ergebnissen ab Woche 1.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">CTA</div>
+        <div class="info-value">Erstgespräch für den AI-Fasttrack buchen</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Warum dieser Angle?</div>
+        <div class="info-value">Jeremy Haynes-Style: Beschreibt die Condition des idealen Kunden. "Trotz AI immer noch genauso lange" – das trifft den Nerv. Wer sich hier angesprochen fühlt, ist genau der richtige Prospect.</div>
+      </div>
+    </div>
+
+    <div class="info-card" id="sidebar-4" style="display:none;">
+      <h3>Variante 5</h3>
+      <div class="variant-name">Profit-Hebel</div>
+      <div style="margin-bottom: 16px;">
+        <span class="hypothesis-tag">Hypothese D</span>
+        <span class="hypothesis-tag">Profit/Marge</span>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Headline</div>
+        <div class="info-value">Schneller liefern, weniger Overhead, mehr Marge – ohne einen einzigen neuen Hire.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Sub-Headline</div>
+        <div class="info-value">Das passiert, wenn du aufhörst AI als Tool zu nutzen und anfängst dein Business darauf aufzubauen. Dieses Video zeigt dir den exakten Aufbau.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Step 2/2 Framing</div>
+        <div class="info-value">Der DXR AI-Fasttrack: 14 Tage, ein klarer Fahrplan, dein AI-System steht. Mehr Output, mehr Marge, weniger Stress.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">CTA</div>
+        <div class="info-value">Jetzt Platz im AI-Fasttrack sichern</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info-item">
+        <div class="info-label">Warum dieser Angle?</div>
+        <div class="info-value">Spricht direkt den Unternehmer-Nerv an: Profit, Marge, kein neuer Hire. Kombiniert den Speed-Angle mit dem finanziellen Outcome. Für den Agenturinhaber, der in Zahlen denkt.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showVariant(index) {
+    // Update tabs
+    document.querySelectorAll('.tab').forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+
+    // Update phone content
+    document.querySelectorAll('.lp').forEach((v, i) => {
+      v.classList.toggle('active', i === index);
+    });
+
+    // Update sidebar
+    for (let i = 0; i < 5; i++) {
+      document.getElementById('sidebar-' + i).style.display = i === index ? 'block' : 'none';
+    }
+
+    // Scroll phone to top
+    document.querySelector('.phone-screen').scrollTop = 0;
+  }
+</script>
+
+</body>
+</html>

@@ -963,6 +963,270 @@
     font-style: italic;
   }
 
+
+  /* ========== HITL COMPACT GRID ========== */
+  .hitl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .hitl-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 12px;
+    padding: 16px 20px;
+    transition: border-color 0.3s ease;
+  }
+
+  .hitl-item:hover {
+    border-color: rgba(21, 106, 255, 0.3);
+  }
+
+  .hitl-item-full {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
+  .hitl-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+  }
+
+  .hitl-content strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .hitl-content span {
+    font-size: 0.8rem;
+    color: var(--gray-light);
+    line-height: 1.4;
+  }
+
+  /* ========== PILLARS VISUAL ========== */
+  .pillars-visual {
+    background: var(--dark);
+    border: 1px solid rgba(21, 106, 255, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 50px 0;
+  }
+
+  .pillars-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .pillar-visual-card {
+    text-align: center;
+    padding: 24px 20px;
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .pillar-visual-icon {
+    margin-bottom: 16px;
+  }
+
+  .pillar-visual-card h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .pillar-visual-card p {
+    font-size: 0.8rem;
+    color: var(--gray-light);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .pillar-visual-connector {
+    flex-shrink: 0;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ========== USE CASE WALL ========== */
+  .usecase-category {
+    margin: 40px 0;
+  }
+
+  .usecase-category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .usecase-cat-icon {
+    font-size: 1.4rem;
+  }
+
+  .usecase-category-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+
+  .usecase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+
+  .usecase-item {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 14px;
+    padding: 24px;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .usecase-item:hover {
+    border-color: rgba(21, 106, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .usecase-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .usecase-item p {
+    font-size: 0.82rem;
+    color: var(--gray-light);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ========== FAST TRACK ========== */
+  .fast-track-section {
+    margin: 60px 0 40px;
+  }
+
+  .fast-track-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .fast-track-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid rgba(21, 106, 255, 0.4);
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-family: var(--font-mono);
+  }
+
+  .fast-track-header h2 {
+    font-size: 2rem;
+    margin: 0 0 12px;
+  }
+
+  .fast-track-header p {
+    color: var(--gray-light);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .fast-track-timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0;
+  }
+
+  .ft-week {
+    background: var(--dark);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ft-week::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-accent);
+  }
+
+  .ft-week-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .ft-week-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .ft-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ft-item {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--dark-3);
+  }
+
+  .ft-item:last-child {
+    border-bottom: none;
+  }
+
+  .ft-day {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 65px;
+  }
+
+  .ft-task {
+    font-size: 0.9rem;
+    color: var(--gray-light);
+    line-height: 1.4;
+  }
+
   /* ========== INLINE HIGHLIGHTS ========== */
   .accent-text { color: var(--accent); font-weight: 700; }
   .mono { font-family: var(--font-mono); font-size: 0.9em; }
@@ -1028,6 +1292,13 @@
     .arch-grid { grid-template-columns: 1fr; }
     .kpi-grid { grid-template-columns: 1fr; }
     .cover-meta { flex-direction: column; gap: 20px; }
+
+    .hitl-grid { grid-template-columns: 1fr; }
+    .hitl-item-full { max-width: 100%; }
+    .pillars-row { flex-direction: column; gap: 16px; }
+    .pillar-visual-connector { transform: rotate(90deg); }
+    .usecase-grid { grid-template-columns: 1fr; }
+    .fast-track-timeline { grid-template-columns: 1fr; }
     .pillar-number { font-size: 3rem; }
     .stack-diagram { padding: 32px 24px; }
     .skill-detail-grid { grid-template-columns: 1fr; }
@@ -1100,7 +1371,7 @@
   @media print {
     body { background: white; color: #111; }
     .cover { min-height: auto; padding: 80px 40px; }
-    .card, .pillar-card, .skill-card, .callout, .highlight-box, .arch-item, .kpi-group, .summary-box, .cta-section, .stack-diagram {
+    .card, .pillar-card, .skill-card, .callout, .highlight-box, .arch-item, .kpi-group, .summary-box, .cta-section, .stack-diagram, .usecase-item, .usecase-category, .ft-week, .hitl-item, .fast-track-section, .pillars-visual {
       break-inside: avoid;
     }
     section { padding: 40px 0; }
@@ -1119,8 +1390,6 @@
   <h1>Das <span class="highlight">AI-First</span><br>Playbook</h1>
   <p class="cover-subtitle">Alles was du wissen musst, um deine Agentur 2026 AI-First aufzustellen. Direkt aus der Praxis.</p>
   <div class="cover-meta">
-    <div class="cover-meta-item">Builds<span>350+</span></div>
-    <div class="cover-meta-item">Agenturen begleitet<span>600+</span></div>
     <div class="cover-meta-item">By<span>Digital X Results</span></div>
   </div>
 </div>
@@ -1134,7 +1403,7 @@
     <div class="section-title">Kennst du schon Claudius?</div>
     <div class="divider-thick"></div>
 
-    <p>Wir bei DXR arbeiten seit Tag 1 mit AI &mdash; &Uuml;ber 350 Builds, &uuml;ber 600 Agenturen begleitet. Und das hier? Das ist das Destillat aus allem, was wir sehen, was funktioniert, was die Agenturen machen die gerade abgehen &mdash; und was diejenigen verpassen, die abgeh&auml;ngt werden.</p>
+    <p>Wir bei DXR arbeiten seit Tag 1 mit AI. Und das hier? Das ist das Destillat aus allem, was wir sehen, was funktioniert, was die Agenturen machen die gerade abgehen &mdash; und was diejenigen verpassen, die abgeh&auml;ngt werden.</p>
 
     <div class="callout">
       <p><strong>Bevor wir irgendwo anders anfangen:</strong> Wenn du Claude noch nicht installiert hast, mach das jetzt. Ernsthaft. Jetzt. Claude ist einfach insane. Claude ist ein komplettes Betriebssystem f&uuml;r dein Business.</p>
@@ -1236,31 +1505,41 @@
       <p>Wenn jeder mit AI geilen Content produzieren kann &mdash; was unterscheidet dich dann noch von allen anderen?</p>
 
       <h3>Die 5 Human-in-the-Loop Categories</h3>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-number">01</div>
-          <h4>Decision</h4>
-          <p>Die finalen Entscheidungen triffst du. Welche Richtung, welche Bets, welche Kunden. AI liefert Daten &mdash; du entscheidest.</p>
+      <div class="hitl-grid">
+        <div class="hitl-item">
+          <div class="hitl-icon">&#127919;</div>
+          <div class="hitl-content">
+            <strong>Decision</strong>
+            <span>Welche Richtung, welche Bets &mdash; du entscheidest</span>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-number">02</div>
-          <h4>Validation</h4>
-          <p>AI produziert Output. Aber wer sagt, dass der gut ist? Du validierst, ob die Copy on Brand ist, ob die Strategie Sinn macht.</p>
+        <div class="hitl-item">
+          <div class="hitl-icon">&#9989;</div>
+          <div class="hitl-content">
+            <strong>Validation</strong>
+            <span>On Brand? Macht Sinn? Du validierst den Output</span>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-number">03</div>
-          <h4>Context</h4>
-          <p>Du kennst die Nuancen. Der Kunde war gestresst, die Branche &auml;ndert sich. Dieser menschliche Kontext macht den Unterschied.</p>
+        <div class="hitl-item">
+          <div class="hitl-icon">&#128161;</div>
+          <div class="hitl-content">
+            <strong>Context</strong>
+            <span>Nuancen, Stimmungen, Branchen-Shifts &mdash; dein Edge</span>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-number">04</div>
-          <h4>Relationship</h4>
-          <p>Deine Verkaufsgespr&auml;che. Wie du Beziehungen aufbaust. Deine Verhandlungsskills. Das bleibt Mensch.</p>
+        <div class="hitl-item">
+          <div class="hitl-icon">&#129309;</div>
+          <div class="hitl-content">
+            <strong>Relationship</strong>
+            <span>Sales, Verhandlung, Vertrauen &mdash; bleibt Mensch</span>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-number">05</div>
-          <h4>Judgment</h4>
-          <p>Das Bauchgef&uuml;hl. Wann pushen, wann loslassen, wann investieren, wann cutten. Zutiefst menschlich.</p>
+        <div class="hitl-item hitl-item-full">
+          <div class="hitl-icon">&#129504;</div>
+          <div class="hitl-content">
+            <strong>Judgment</strong>
+            <span>Bauchgef&uuml;hl: wann pushen, wann cutten, wann All-In</span>
+          </div>
         </div>
       </div>
 
@@ -1268,13 +1547,38 @@
     </div>
 
     <!-- ZUSAMMENFASSUNG -->
-    <div class="summary-box">
-      <h3>Die drei S&auml;ulen auf einen Blick</h3>
-      <ul class="summary-list">
-        <li><strong>AI-Nativ</strong> &mdash; In jedem Bereich, auf Tech-Stack UND Culture-Ebene. Jeder nutzt AI. Jeder Prozess ist optimiert.</li>
-        <li><strong>Community</strong> &mdash; Driven Agenturinhaber, gefilterter Signalkanal, echte Connections statt LinkedIn-Ghosts.</li>
-        <li><strong>Human Excellence</strong> &mdash; Decision, Validation, Context, Relationship, Judgment. Arbeite an dir selbst.</li>
-      </ul>
+    <!-- Drei Säulen Visual -->
+    <div class="pillars-visual">
+      <h3 style="text-align: center; color: var(--accent); font-size: 1.2rem; margin-top: 0; margin-bottom: 32px; letter-spacing: 2px; text-transform: uppercase; font-family: var(--font-mono); font-size: 0.8rem;">Die drei S&auml;ulen auf einen Blick</h3>
+      <div class="pillars-row">
+        <div class="pillar-visual-card">
+          <div class="pillar-visual-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="32" height="32" rx="8" stroke="#156aff" stroke-width="2"/><path d="M14 20l4 4 8-8" stroke="#156aff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>AI-Nativ</h4>
+          <p>Tech-Stack + Culture.<br>Jeder Prozess optimiert.</p>
+        </div>
+        <div class="pillar-visual-connector">
+          <svg width="32" height="4" viewBox="0 0 32 4"><rect width="32" height="4" rx="2" fill="url(#grad1)"/><defs><linearGradient id="grad1"><stop offset="0%" stop-color="#156aff" stop-opacity="0.2"/><stop offset="50%" stop-color="#156aff" stop-opacity="0.6"/><stop offset="100%" stop-color="#156aff" stop-opacity="0.2"/></linearGradient></defs></svg>
+        </div>
+        <div class="pillar-visual-card">
+          <div class="pillar-visual-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="15" cy="16" r="6" stroke="#156aff" stroke-width="2"/><circle cx="25" cy="16" r="6" stroke="#156aff" stroke-width="2"/><path d="M20 28c-6 0-12 3-12 6v2h24v-2c0-3-6-6-12-6z" stroke="#156aff" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Community</h4>
+          <p>Gefilterter Signal-Kanal.<br>Echte Connections.</p>
+        </div>
+        <div class="pillar-visual-connector">
+          <svg width="32" height="4" viewBox="0 0 32 4"><rect width="32" height="4" rx="2" fill="url(#grad1)"/></svg>
+        </div>
+        <div class="pillar-visual-card">
+          <div class="pillar-visual-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 6l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" stroke="#156aff" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Human Excellence</h4>
+          <p>Decision. Validation. Context.<br>Relationship. Judgment.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1417,6 +1721,130 @@
 
     <div class="callout">
       <p><strong>Das Bild:</strong> Du sagst Claude "Check mal meine Airtable-Pipeline und sag mir, welche Kunden diese Woche Follow-up brauchen" &mdash; und Claude macht das. Direkt. Ohne dass du irgendwas &ouml;ffnen musst.</p>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ============================================ -->
+<!-- USE CASE WALL -->
+<!-- ============================================ -->
+<section>
+  <div class="content-wrapper">
+    <div class="section-label">Was damit m&ouml;glich ist</div>
+    <div class="section-title">Die <span class="highlight">Use Cases</span> aus der Community</div>
+    <div class="divider-thick"></div>
+
+    <p>Das sind keine theoretischen Ideen. Das sind echte Ergebnisse von echten Agenturinhabern aus unserer Community. Jeder einzelne Use Case wurde gebaut, getestet und liefert Resultate.</p>
+
+    <!-- CATEGORY GRID -->
+    <div class="usecase-category">
+      <div class="usecase-category-header">
+        <span class="usecase-cat-icon">&#128176;</span>
+        <h3>Sales &amp; Closing</h3>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-item">
+          <h4>Custom Pitch Decks in 20 Min</h4>
+          <p>Sales Call transkribieren &rarr; Claude baut gebrandetes Pitch Deck + Process Map. N&auml;chster Call: Kunde ist sprachlos.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>AI Sales Process Flow</h4>
+          <p>Discovery Call &rarr; Excalidraw MCP &rarr; Claude baut automatisch eine visuelle Prozessmap aus dem Transkript.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Closer&rsquo;s Sales Playbook</h4>
+          <p>Komplettes Sales-System in Claude: Structured Prompts, Einwand-Handling, Follow-up Sequenzen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="usecase-category">
+      <div class="usecase-category-header">
+        <span class="usecase-cat-icon">&#127919;</span>
+        <h3>Outreach &amp; Lead Gen</h3>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-item">
+          <h4>Hyperpersonalized Outreach</h4>
+          <p>AI scraped Prospect-Infos, baut hyper-personalisierte Messages &mdash; keine Templates, echte 1:1-Relevanz at scale.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Funnel Rapid Prototyping</h4>
+          <p>40&ndash;50 Headline-Varianten testen per Voice. Live-Preview. Erst wenn&rsquo;s sitzt &rarr; ab ins echte Tool.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Leadmagnet Generator</h4>
+          <p>14-seitiger gebrandeter Leadmagnet &mdash; komplett aus Claude. Markdown &rarr; HTML &rarr; PDF. Ein Prompt.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="usecase-category">
+      <div class="usecase-category-header">
+        <span class="usecase-cat-icon">&#9997;&#65039;</span>
+        <h3>Content &amp; Copywriting</h3>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-item">
+          <h4>AI Copywriting mit Kontext-Files</h4>
+          <p>Tonality, Offer, Positionierung als Files hinterlegen. Voice-Memo rein &rarr; fertige Ads, Posts, Emails raus.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Presentation Generator</h4>
+          <p>Branded Presentations vollautomatisch. HTML &rarr; PDF, alles on Brand, kein Designer n&ouml;tig.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>AI-HTML als Design Layer</h4>
+          <p>HTML als Designsprache der AI. Elemente designen &rarr; als PNGs exportieren &rarr; in Videos einbetten.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="usecase-category">
+      <div class="usecase-category-header">
+        <span class="usecase-cat-icon">&#128202;</span>
+        <h3>Ops &amp; Business Intelligence</h3>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-item">
+          <h4>CEO Dashboard in Sekunden</h4>
+          <p>Alle Daten in Airtable. 30-Sekunden Voice-Memo &rarr; Liquidit&auml;tsplanung, Retention-Szenarien, Performance-Vergleiche.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Marketing Tracking ohne Setup</h4>
+          <p>URL-Parameter in Airtable &rarr; Claude wertet on-the-fly aus. Kein HubSpot-Overkill. Einfach fragen.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Airtable MCP + Custom Interfaces</h4>
+          <p>Kundenportale, Onboarding-Flows, CRM-Auswertungen &mdash; alles vibecoded auf Airtable-Basis.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="usecase-category">
+      <div class="usecase-category-header">
+        <span class="usecase-cat-icon">&#128736;&#65039;</span>
+        <h3>Infrastruktur &amp; Tools</h3>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-item">
+          <h4>Vibe-Coded Websites &amp; Tools</h4>
+          <p>Landing Pages, Mini-Tools &mdash; Claude Code + Netlify deployed. Ein HTML-Index = ein Prompt.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Retrospective Agent</h4>
+          <p>Context-Window voll? Skill komprimiert alles, liefert Summary &rarr; frischer Chat, null Kontextverlust.</p>
+        </div>
+        <div class="usecase-item">
+          <h4>Excalidraw MCP f&uuml;r Flows</h4>
+          <p>Meeting-Transkripte &rarr; visuelle Prozessmaps in Minuten. Mindmaps, Flowcharts, Roadmaps.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: 40px;">
+      <p><strong>Und das sind nur die Highlights.</strong> Jeden Monat kommen neue Use Cases aus der Community dazu. Jeder teilt, was er baut &mdash; und alle profitieren.</p>
     </div>
   </div>
 </section>
@@ -1791,13 +2219,65 @@ Brand: [Farben, Logo-Info, Font-Pr&auml;ferenzen]</pre>
       </div>
     </div>
 
+    <!-- AI FAST TRACK -->
+    <div class="fast-track-section">
+      <div class="fast-track-header">
+        <div class="fast-track-badge">AI FAST TRACK</div>
+        <h2>In 14 Tagen zur vollen <span class="highlight">AI Power</span></h2>
+        <p>Kein monatelanges Rumfummeln. Kein Trial-and-Error. In zwei Wochen steht dein komplettes AI-Setup.</p>
+      </div>
+
+      <div class="fast-track-timeline">
+        <div class="ft-week">
+          <div class="ft-week-label">Woche 1</div>
+          <div class="ft-week-title">Foundation</div>
+          <div class="ft-items">
+            <div class="ft-item">
+              <span class="ft-day">Tag 1&ndash;2</span>
+              <span class="ft-task">Claude Setup + System Prompt + Konnektoren</span>
+            </div>
+            <div class="ft-item">
+              <span class="ft-day">Tag 3&ndash;4</span>
+              <span class="ft-task">Tech Stack Audit + Datensilos aufl&ouml;sen</span>
+            </div>
+            <div class="ft-item">
+              <span class="ft-day">Tag 5&ndash;7</span>
+              <span class="ft-task">Erste Skills installieren + Team-Onboarding</span>
+            </div>
+          </div>
+        </div>
+        <div class="ft-week">
+          <div class="ft-week-label">Woche 2</div>
+          <div class="ft-week-title">Execution</div>
+          <div class="ft-items">
+            <div class="ft-item">
+              <span class="ft-day">Tag 8&ndash;10</span>
+              <span class="ft-task">Outreach + Content Systeme aufsetzen</span>
+            </div>
+            <div class="ft-item">
+              <span class="ft-day">Tag 11&ndash;12</span>
+              <span class="ft-task">CEO Dashboard + Reporting automatisieren</span>
+            </div>
+            <div class="ft-item">
+              <span class="ft-day">Tag 13&ndash;14</span>
+              <span class="ft-task">Scheduled Tasks + Community-Zugang</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin: 30px 0;">
+        <p><strong>Das Ergebnis nach 14 Tagen:</strong> Dein Team arbeitet AI-nativ. Deine Prozesse sind connected. Du hast Use Cases, die sofort Ergebnisse liefern. Und du bist Teil einer Community, die dich am Ball h&auml;lt.</p>
+      </div>
+    </div>
+
     <!-- CTA -->
     <div class="cta-section">
-      <h2>Die &Uuml;berholspur</h2>
-      <p>Alles, was du gelesen hast &mdash; die drei S&auml;ulen, den Dream Tech Stack, Claude als AI-Zentrale, die Skills &mdash; genau das haben wir bei DXR aufgebaut und f&uuml;r &uuml;ber 600 Agenturen implementiert.</p>
+      <h2>Bereit f&uuml;r den Fast Track?</h2>
+      <p>Alles, was du in diesem Playbook gelesen hast &mdash; die drei S&auml;ulen, den Dream Tech Stack, Claude als AI-Zentrale, die Skills, die Use Cases &mdash; genau das bauen wir mit dir auf. In 14 Tagen.</p>
       <p>Community von driven Agenturinhabern. Fester Account Manager. Live Calls. Sales Roleplay. Proven Playbooks. In-Person Events.</p>
-      <p style="font-weight: 700; color: var(--white);">Wenn du die &Uuml;berholspur willst &mdash; lass uns reden.</p>
-      <a href="#" class="cta-button">TERMIN BUCHEN</a>
+      <p style="font-weight: 700; color: var(--white);">Lass uns in 14 Tagen deine Agentur AI-First aufstellen.</p>
+      <a href="#" class="cta-button">FAST TRACK STARTEN</a>
     </div>
   </div>
 </section>
@@ -1824,20 +2304,82 @@ Brand: [Farben, Logo-Info, Font-Pr&auml;ferenzen]</pre>
 <script>
 function downloadPDF() {
   var btn = document.getElementById('dlBtn');
-  var label = document.getElementById('dlLabel');
 
-  // 1) Hide download button BEFORE capture
+  // 1) Hide download button
   btn.style.display = 'none';
 
-  // 2) Scroll to top to avoid offset issues
+  // 2) Inject PDF-mode styles: full-width content, forced page breaks
+  var pdfStyle = document.createElement('style');
+  pdfStyle.id = 'pdf-mode-css';
+  pdfStyle.textContent = [
+    'body { background: #000a27 !important; }',
+    '.content-wrapper { max-width: 100% !important; padding: 0 28px !important; }',
+    '.cover { min-height: auto !important; padding: 40px 28px !important; }',
+    'section { padding: 36px 0 !important; }',
+    'p { margin-bottom: 14px !important; line-height: 1.6 !important; font-size: 0.95rem !important; }',
+    'h2 { margin: 36px 0 14px !important; font-size: 1.5rem !important; }',
+    'h3 { margin: 28px 0 12px !important; font-size: 1.15rem !important; }',
+    '.pillar-card { padding: 28px 24px !important; margin: 24px 0 !important; }',
+    '.skill-card { padding: 28px !important; margin: 24px 0 !important; }',
+    '.card { padding: 20px !important; }',
+    '.card-grid { gap: 12px !important; margin: 20px 0 !important; }',
+    '.card-grid.three-col { grid-template-columns: 1fr 1fr 1fr !important; }',
+    '.arch-grid { gap: 10px !important; }',
+    '.arch-item { padding: 18px !important; }',
+    '.comparison { gap: 14px !important; margin: 30px 0 !important; }',
+    '.comparison-side { padding: 24px !important; }',
+    '.skill-detail-grid { gap: 12px !important; }',
+    '.skill-prompt-box { padding: 18px !important; }',
+    '.skill-prompt-box pre { font-size: 0.75rem !important; line-height: 1.5 !important; }',
+    '.usecase-grid { grid-template-columns: 1fr 1fr 1fr !important; gap: 10px !important; }',
+    '.usecase-item { padding: 16px !important; }',
+    '.usecase-item h4 { font-size: 0.85rem !important; }',
+    '.usecase-item p { font-size: 0.75rem !important; }',
+    '.usecase-category { margin: 24px 0 !important; }',
+    '.fast-track-timeline { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }',
+    '.ft-week { padding: 20px !important; }',
+    '.hitl-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }',
+    '.hitl-item { padding: 10px 14px !important; }',
+    '.hitl-item-full { max-width: 100% !important; }',
+    '.pillars-visual { padding: 24px !important; margin: 30px 0 !important; }',
+    '.steps .step { margin-bottom: 16px !important; }',
+    '.divider { margin: 40px 0 !important; }',
+    '.cta-section { padding: 36px 28px !important; margin: 30px 0 !important; }',
+    '.callout { padding: 18px 22px !important; margin: 24px 0 !important; }',
+    '.highlight-box { padding: 24px !important; margin: 30px 0 !important; }',
+    '.kpi-grid { gap: 10px !important; }',
+    '.kpi-group { padding: 16px !important; }',
+    '.summary-box { padding: 24px !important; margin: 30px 0 !important; }',
+    '.card, .pillar-card, .skill-card, .callout, .highlight-box, .arch-item, .kpi-group, .summary-box, .cta-section, .stack-diagram, .skill-detail-grid, .skill-prompt-box, .usecase-item, .usecase-category, .ft-week, .hitl-item, .fast-track-section, .pillars-visual { break-inside: avoid; page-break-inside: avoid; }',
+    '.pdf-section-break { page-break-before: always !important; break-before: page !important; display: block !important; height: 0 !important; }',
+    '.cover::before { display: none !important; }',
+    '.download-fab { display: none !important; }'
+  ].join('\n');
+  document.head.appendChild(pdfStyle);
+
+  // 3) Add section break markers before major sections
+  var sections = document.querySelectorAll('section');
+  var breakEls = [];
+  sections.forEach(function(sec, i) {
+    if (i > 0) {
+      var br = document.createElement('div');
+      br.className = 'pdf-section-break';
+      br.setAttribute('data-pdf-break', 'true');
+      sec.parentNode.insertBefore(br, sec);
+      breakEls.push(br);
+    }
+  });
+
+  // 4) Scroll to top
   window.scrollTo(0, 0);
 
-  // 3) Small delay to let browser repaint
+  // 5) Delay for repaint, then capture
   setTimeout(function() {
+    var contentWidth = 900;
     var opt = {
-      margin: [0, 0, 0, 0],
+      margin: [8, 0, 8, 0],
       filename: 'AI-First-Playbook-DXR.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
+      image: { type: 'jpeg', quality: 0.95 },
       html2canvas: {
         scale: 2,
         useCORS: true,
@@ -1847,8 +2389,8 @@ function downloadPDF() {
         scrollY: 0,
         x: 0,
         y: 0,
-        width: document.documentElement.scrollWidth,
-        windowWidth: document.documentElement.scrollWidth
+        width: contentWidth,
+        windowWidth: contentWidth
       },
       jsPDF: {
         unit: 'mm',
@@ -1856,18 +2398,29 @@ function downloadPDF() {
         orientation: 'portrait'
       },
       pagebreak: {
-        mode: ['avoid-all', 'css', 'legacy'],
-        avoid: ['.skill-card', '.pillar-card', '.card', '.callout', '.highlight-box', '.kpi-group', '.cta-section', '.skill-detail-grid', '.skill-prompt-box']
+        mode: ['css', 'legacy'],
+        before: '.pdf-section-break',
+        avoid: ['.skill-card', '.pillar-card', '.card', '.callout', '.highlight-box', '.kpi-group', '.cta-section', '.skill-detail-grid', '.skill-prompt-box', '.arch-item', '.summary-box', '.stack-diagram', '.usecase-item', '.usecase-category', '.ft-week', '.hitl-item', '.fast-track-section', '.pillars-visual']
       }
     };
 
     html2pdf().set(opt).from(document.body).save().then(function() {
-      btn.style.display = '';
+      cleanup();
     }).catch(function(err) {
       console.error('PDF error:', err);
-      btn.style.display = '';
+      cleanup();
     });
-  }, 100);
+
+    function cleanup() {
+      // Remove injected PDF styles
+      var s = document.getElementById('pdf-mode-css');
+      if (s) s.remove();
+      // Remove break markers
+      breakEls.forEach(function(el) { el.remove(); });
+      // Show button again
+      btn.style.display = '';
+    }
+  }, 200);
 }
 
 function copySkill(num) {
